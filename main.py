@@ -28,7 +28,7 @@ class RunParserEapteka(eapteka_pb2_grpc.RunParserServicer):
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     eapteka_pb2_grpc.add_RunParserServicer_to_server(RunParserEapteka(), server)
-    server.add_insecure_port("127.0.0.1:8090")
+    server.add_insecure_port("[::]:8090")
     server.start()
     try:
         while True:
