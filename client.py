@@ -9,8 +9,12 @@ import eapteka_pb2_grpc
 
 def get_data():
     name = "abakan"
+    if os.environ.get('https_proxy'):
+        del os.environ['https_proxy']
+    if os.environ.get('http_proxy'):
+        del os.environ['http_proxy']
 
-    with grpc.insecure_channel("localhost:9999") as ch:
+    with grpc.insecure_channel("141.101.188.7:8000") as ch:
         stub = eapteka_pb2_grpc.RunParserStub(ch)
         response = stub.run_parser(eapteka_pb2.City(name=name))
 
