@@ -14,7 +14,7 @@ def get_data():
     if os.environ.get('http_proxy'):
         del os.environ['http_proxy']
 
-    with grpc.insecure_channel("141.101.188.7:8088") as ch:
+    with grpc.insecure_channel("141.101.188.7:8090") as ch:
         stub = eapteka_pb2_grpc.RunParserStub(ch)
         response = stub.run_parser(eapteka_pb2.City(name=name))
 
