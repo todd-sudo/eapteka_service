@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package eapteka;
+
+service RunParser {
+  rpc run_parser(City) returns (Product) {}
+}
+
+message City {
+  string name = 1;
+}
+
+message Product {
+  string sku = 1;
+  string name = 2;
+  string brand = 3;
+  int32 price = 4;
+  int32 price_old = 5;
+  string category = 6;
+}
