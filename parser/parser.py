@@ -75,7 +75,7 @@ def get_products_e_apteka(
     driver: Firefox = get_web_driver(proxy)
     # driver.implicitly_wait(60)
     driver.get(url)
-    time.sleep(5)
+    time.sleep(3)
 
     try:
         print("запускаю парсинг")
