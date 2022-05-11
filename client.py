@@ -27,7 +27,7 @@ def get_data():
         print(response.sku)
         print(response.name)
         print(response.brand)
-        print(response.price)
+        print(type(response.price))
         print(response.price_old)
         print(response.is_active)
         print(response.category)
