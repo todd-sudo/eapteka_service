@@ -50,9 +50,9 @@ def parse_object(driver: webdriver.Firefox) -> Optional[tuple]:
         price = int(price.text.strip().replace(" ", ""))
     except NoSuchElementException:
         price = 0
-    is_active = True
-    if price == 0:
-        is_active = False
+    is_active = False
+    if price != 0:
+        is_active = True
     return name, brand, price, price_old, is_active
 
 
