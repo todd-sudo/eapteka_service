@@ -19,5 +19,4 @@ message Product {
   int32 price = 4;
   int32 price_old = 5;
   string category = 6;
-  bool is_active = 7;
 }

@@ -50,10 +50,7 @@ def parse_object(driver: webdriver.Firefox) -> Optional[tuple]:
         price = int(price.text.strip().replace(" ", ""))
     except NoSuchElementException:
         price = 0
-    is_active = False
-    if price != 0:
-        is_active = True
-    return name, brand, price, price_old, is_active
+    return name, brand, price, price_old
 
 
 proxy_list = get_proxy_list()
@@ -81,8 +78,8 @@ def get_products_e_apteka(
         print("запускаю парсинг")
         obj = parse_object(driver)
         if obj is not None:
-            name, brand, price, price_old, is_active = obj
-            return sku, name, brand, price, price_old, is_active, category
+            name, brand, price, price_old = obj
+            return sku, name, brand, price, price_old, category
     except ParceException as e:
         print(e)
 
