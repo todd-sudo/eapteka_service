@@ -78,7 +78,7 @@ def get_products_e_apteka(
     # driver.implicitly_wait(60)
     driver.get(url)
     print("начинаю паузу")
-    time.sleep(3)
+    time.sleep(5)
     print(driver.page_source)
     # driver.delete_all_cookies()
     try:
