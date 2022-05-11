@@ -23,13 +23,11 @@ def get_data():
                 category="Test"
             )
         )
-        # print(response)
         print(response.sku)
         print(response.name)
         print(response.brand)
-        print(type(response.price))
+        print(response.price)
         print(response.price_old)
-        print(response.is_active)
         print(response.category)
     # except KeyboardInterrupt:
         # ch.unsubscribe(close)

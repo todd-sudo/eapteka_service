@@ -23,7 +23,7 @@ class RunParserEapteka(eapteka_pb2_grpc.RunParserServicer):
             category=request.category,
         )
         if obj is not None:
-            sku, name, brand, price, price_old, is_active, category = obj
+            sku, name, brand, price, price_old, category = obj
             return eapteka_pb2.Product(
                 name=name,
                 sku=sku,
