@@ -1,0 +1,3 @@
+
+class ParceException(Exception):
+    pass

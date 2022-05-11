@@ -16,7 +16,7 @@ class RunParserStub(object):
         """
         self.run_parser = channel.unary_unary(
                 '/eapteka.RunParser/run_parser',
-                request_serializer=eapteka__pb2.City.SerializeToString,
+                request_serializer=eapteka__pb2.RequestData.SerializeToString,
                 response_deserializer=eapteka__pb2.Product.FromString,
                 )
 
@@ -35,7 +35,7 @@ def add_RunParserServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'run_parser': grpc.unary_unary_rpc_method_handler(
                     servicer.run_parser,
-                    request_deserializer=eapteka__pb2.City.FromString,
+                    request_deserializer=eapteka__pb2.RequestData.FromString,
                     response_serializer=eapteka__pb2.Product.SerializeToString,
             ),
     }
@@ -60,7 +60,7 @@ class RunParser(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/eapteka.RunParser/run_parser',
-            eapteka__pb2.City.SerializeToString,
+            eapteka__pb2.RequestData.SerializeToString,
             eapteka__pb2.Product.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
