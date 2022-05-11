@@ -26,7 +26,7 @@ def get_web_driver(proxy=None):
         firefox_profile=profile,
         # seleniumwire_options=proxy,
         desired_capabilities=DesiredCapabilities.FIREFOX,
-        # proxy=proxy,
+        proxy=proxy,
     )
 
     driver.set_page_load_timeout(3600 * 2 * 2)
