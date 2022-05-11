@@ -67,7 +67,7 @@ def get_products_e_apteka(
             "http": random.choice(proxy_list)
         }
     }
-    url = f"https://www.eapteka.ru/{city_name}/goods/id{sku.strip()}/"
+    url = f"https://www.eapteka.ru{city_name}goods/id{sku.strip()}/"
     # url = f"https://2ip.ru/"
     driver: Firefox = get_web_driver(proxy)
     # driver.implicitly_wait(60)
