@@ -20,7 +20,7 @@ def get_web_driver(proxy=None):
     profile.set_preference("network.http.use-cache", False)
     # profile.update_preferences()
 
-    driver = webd.Firefox(
+    driver = webdriver.Firefox(
         executable_path=root_path + '/geckodriver',
         options=options,
         firefox_profile=profile,
