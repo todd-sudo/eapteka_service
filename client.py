@@ -32,7 +32,7 @@ def get_data():
     # except KeyboardInterrupt:
         # ch.unsubscribe(close)
         # exit()
-        ch.close()
+        # ch.close()
 
 
 def close(ch):

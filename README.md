@@ -1,1 +1,2 @@
 python -m grpc_tools.protoc -I./protos --python_out=./source_grpc --grpc_python_out=./source_grpc ./protos/eapteka.proto
+python -m grpc_tools.protoc -I./protos --python_out=. --grpc_python_out=. ./protos/eapteka.proto
