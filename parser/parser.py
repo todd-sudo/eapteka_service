@@ -73,7 +73,7 @@ def get_products_e_apteka(
     url = f"https://www.eapteka.ru/{city_name}/goods/id{sku.strip()}/"
     print(url)
     # url = f"https://2ip.ru/"
-    driver: Firefox = get_web_driver(proxy)
+    driver: Firefox = get_web_driver()
     # driver.delete_all_cookies()
     # driver.implicitly_wait(60)
     driver.get(url)

@@ -5,7 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 
-def get_web_driver(proxy):
+def get_web_driver(proxy=None):
     root_path = os.getcwd()
     options = webdriver.FirefoxOptions()
     options.add_argument("--headless")
@@ -24,7 +24,7 @@ def get_web_driver(proxy):
         executable_path=root_path + '/geckodriver',
         options=options,
         firefox_profile=profile,
-        seleniumwire_options=proxy,
+        # seleniumwire_options=proxy,
         desired_capabilities=DesiredCapabilities.FIREFOX,
         # proxy=proxy,
     )
