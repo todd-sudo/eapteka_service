@@ -79,6 +79,7 @@ def get_products_e_apteka(
         obj = parse_object(driver)
         if obj is not None:
             name, brand, price, price_old = obj
+            print(name)
             return sku, name, brand, price, price_old, category
     except ParceException as e:
         print(e)
