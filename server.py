@@ -36,13 +36,16 @@ class RunParserEapteka(eapteka_pb2_grpc.RunParserServicer):
 
 
 def serve():
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=1))
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     eapteka_pb2_grpc.add_RunParserServicer_to_server(RunParserEapteka(), server)
     server.add_insecure_port("[::]:8088")
     server.start()
     try:
         while True:
-            print("Server started: 127.0.0.1:8088")
+            print(
+                f"Server started: 127.0.0.1:8088\n"
+                f"Threads {threading.active_count()}"
+            )
             time.sleep(10)
     except KeyboardInterrupt as e:
         server.stop(0)
