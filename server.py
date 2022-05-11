@@ -17,6 +17,7 @@ def parse_data(sku: str, city_name: str, category: str):
 
 class RunParserEapteka(eapteka_pb2_grpc.RunParserServicer):
     def run_parser(self, request, context):
+        print(request.city_name)
         obj = parse_data(
             sku=request.sku,
             city_name=request.city_name,
