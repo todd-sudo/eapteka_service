@@ -73,7 +73,7 @@ def get_products_e_apteka(
     # driver.implicitly_wait(60)
     driver.get(url)
     time.sleep(3)
-
+    print(driver.page_source)
     try:
         print("запускаю парсинг")
         obj = parse_object(driver)
