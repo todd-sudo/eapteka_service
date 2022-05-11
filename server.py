@@ -17,7 +17,6 @@ def parse_data(sku: str, city_name: str, category: str):
 
 class RunParserEapteka(eapteka_pb2_grpc.RunParserServicer):
     def run_parser(self, request, context):
-        print(request.city_name)
         obj = parse_data(
             sku=request.sku,
             city_name=request.city_name,
@@ -25,7 +24,6 @@ class RunParserEapteka(eapteka_pb2_grpc.RunParserServicer):
         )
         if obj is not None:
             sku, name, brand, price, price_old, is_active, category = obj
-            print(sku, name)
             return eapteka_pb2.Product(
                 name=name,
                 sku=sku,

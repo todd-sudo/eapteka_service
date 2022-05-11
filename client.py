@@ -1,6 +1,3 @@
-import os
-import time
-
 import grpc
 
 import eapteka_pb2
