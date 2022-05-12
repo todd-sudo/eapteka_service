@@ -16,8 +16,8 @@ def get_web_driver(proxy=None):
     proxy.http_proxy = h
     proxy.socks_proxy = h
     proxy.ssl_proxy = h
-    proxy.socks_username = login
-    proxy.socks_password = p
+    proxy.socksUsername = login
+    proxy.socksPassword = p
     capabilities = DesiredCapabilities.FIREFOX
     proxy.add_to_capabilities(capabilities)
 
