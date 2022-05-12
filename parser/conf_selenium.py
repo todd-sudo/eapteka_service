@@ -18,6 +18,12 @@ def get_web_driver(proxy=None):
     profile.set_preference("browser.cache.memory.enable", False)
     profile.set_preference("browser.cache.offline.enable", False)
     profile.set_preference("network.http.use-cache", False)
+
+    profile.set_preference("network.proxy.type", 1)
+    profile.set_preference("network.proxy.http", "193.36.58.158")
+    profile.set_preference("network.proxy.http_port", "8000")
+    profile.set_preference("network.proxy.username", "QPYXyF")
+    profile.set_preference("network.proxy.password", "rGurC6")
     # profile.update_preferences()
 
     driver = webdriver.Firefox(
@@ -26,8 +32,7 @@ def get_web_driver(proxy=None):
         firefox_profile=profile,
         # seleniumwire_options=proxy,
         desired_capabilities=DesiredCapabilities.FIREFOX,
-        proxy=proxy,
+        # proxy=proxy,
     )
-
     driver.set_page_load_timeout(3600 * 2 * 2)
     return driver

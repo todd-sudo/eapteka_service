@@ -69,7 +69,9 @@ def get_products_e_apteka(
     }
     url = f"https://www.eapteka.ru{city_name}goods/id{sku.strip()}/"
     driver: Firefox = get_web_driver(proxy)
+    url = "https://proxy.mimvp.com/ip.php"
     driver.get(url)
+    print(driver.page_source)
 
     time.sleep(3)
 
