@@ -8,14 +8,18 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 def get_web_driver(proxy=None):
     root_path = os.getcwd()
-    h = "http://QPYXyF:rGurC6@193.36.58.208:8000"
+    h = "193.36.58.208:8000"
+    login = "QPYXyF"
+    p = "rGurC6"
     proxy = Proxy(
         {
             'proxyType': ProxyType.MANUAL,
             'httpProxy': h,
             'ftpProxy': h,
             'sslProxy': h,
-            'noProxy': ''
+            'noProxy': '',
+            'socksUsername': login,
+            'socksPassword': p
         }
     )
 
