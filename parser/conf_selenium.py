@@ -2,6 +2,7 @@ import os
 
 from seleniumwire import webdriver as webd
 from selenium import webdriver
+from selenium.webdriver.common.proxy import Proxy, ProxyType
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 
@@ -19,26 +20,39 @@ def get_web_driver(proxy=None):
     profile.set_preference("browser.cache.offline.enable", False)
     profile.set_preference("network.http.use-cache", False)
 
-    profile.set_preference("network.proxy.type", 1)
-    profile.set_preference("network.proxy.http", "193.36.58.158")
-    profile.set_preference("network.proxy.http_port", 8000)
-    profile.set_preference("network.proxy.username", "QPYXyF")
-    profile.set_preference("network.proxy.password", "rGurC6")
-    profile.set_preference("network.proxy.no_proxies_on", "localhost, 127.0.0.1")
+    profile.set_preference('signon.autologin.proxy', 'true')
+    profile.set_preference('network.proxy.share_proxy_settings', 'false')
+    profile.set_preference('network.automatic-ntlm-auth.allow-proxies', 'false')
+    profile.set_preference('network.auth.use-sspi', 'false')
+
+    proxy_data = {'address': '193.36.58.158:8000',
+                  'usernmae': 'QPYXyF',
+                  'password': 'rGurC6'}
+    proxy_dict = {'proxyType': ProxyType.MANUAL,
+                  'httpProxy': proxy_data['address'],
+                  'ftpProxy': proxy_data['address'],
+                  'sslProxy': proxy_data['address'],
+                  'noProxy': '',
+                  'socksUsername': proxy_data['username'],
+                  'socksPassword': proxy_data['password']}
+
+    proxy_config = Proxy(proxy_dict)
+    # profile.set_preference("network.proxy.type", 1)
+    # profile.set_preference("network.proxy.http", "193.36.58.158")
+    # profile.set_preference("network.proxy.http_port", 8000)
+    # profile.set_preference("network.proxy.username", "QPYXyF")
+    # profile.set_preference("network.proxy.password", "rGurC6")
+    # profile.set_preference("network.proxy.no_proxies_on", "localhost, 127.0.0.1")
     profile.update_preferences()
 
-    driver = webd.Firefox(
+    driver = webdriver.Firefox(
         executable_path=root_path + '/geckodriver',
         options=options,
-        seleniumwire_options={'proxy': {
-            'http': 'http://QPYXyF:rGurC6@193.36.58.158:8000',
-            'https': 'https://QPYXyF:rGurC6@193.36.58.158:8000',
-            'no_proxy': 'localhost,127.0.0.1' # excludes
-        }},
+
         firefox_profile=profile,
         # seleniumwire_options=proxy,
         desired_capabilities=DesiredCapabilities.FIREFOX,
-        # proxy=proxy,
+        proxy=proxy_config,
     )
     driver.set_page_load_timeout(3600 * 2 * 2)
     return driver

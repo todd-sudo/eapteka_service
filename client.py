@@ -18,8 +18,8 @@ def get_data():
         stub = eapteka_pb2_grpc.RunParserStub(ch)
         response = stub.run_parser(
             eapteka_pb2.RequestData(
-                city_name="abakan",
-                sku="105320",
+                city_name="/abakan/",
+                sku="499787",
                 category="Test"
             )
         )
