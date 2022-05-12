@@ -11,17 +11,15 @@ def get_web_driver(proxy=None):
     h = "193.36.58.208:8000"
     login = "QPYXyF"
     p = "rGurC6"
-    proxy = Proxy(
-        {
-            'proxyType': ProxyType.MANUAL,
-            'httpProxy': h,
-            'ftpProxy': h,
-            'sslProxy': h,
-            'noProxy': '',
-            'socksUsername': login,
-            'socksPassword': p
-        }
-    )
+    proxy = Proxy()
+    proxy.proxy_type = ProxyType.MANUAL
+    proxy.http_proxy = h
+    proxy.socks_proxy = h
+    proxy.ssl_proxy = h
+    proxy.socks_username = login
+    proxy.socks_password = p
+    capabilities = DesiredCapabilities.FIREFOX
+    proxy.add_to_capabilities(capabilities)
 
     options = webdriver.FirefoxOptions()
     options.add_argument("--headless")
@@ -39,7 +37,7 @@ def get_web_driver(proxy=None):
         executable_path=root_path + '/geckodriver',
         options=options,
         firefox_profile=profile,
-        desired_capabilities=DesiredCapabilities.FIREFOX,
+        desired_capabilities=capabilities,
         proxy=proxy,
     )
     driver.set_page_load_timeout(3600 * 2 * 2)
