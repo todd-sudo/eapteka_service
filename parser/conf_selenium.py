@@ -21,7 +21,7 @@ def get_web_driver(proxy=None):
 
     profile.set_preference("network.proxy.type", 1)
     profile.set_preference("network.proxy.http", "193.36.58.158")
-    profile.set_preference("network.proxy.http_port", "8000")
+    profile.set_preference("network.proxy.http_port", 8000)
     profile.set_preference("network.proxy.username", "QPYXyF")
     profile.set_preference("network.proxy.password", "rGurC6")
     profile.update_preferences()
