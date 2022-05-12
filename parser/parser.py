@@ -62,12 +62,8 @@ def get_products_e_apteka(
         category: str,
 ) -> Optional[tuple]:
     url = f"https://www.eapteka.ru{city_name}goods/id{sku.strip()}/"
-
-    # url = "https://2ip.ru/"
-    driver: Firefox = get_web_driver(url)
-    # time.sleep(1)
-    # print(driver.find_element(By.CLASS_NAME, "ip").text)
-
+    driver: Firefox = get_web_driver()
+    driver.get(url)
     time.sleep(3)
 
     try:
