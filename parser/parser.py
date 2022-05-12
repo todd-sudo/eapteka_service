@@ -68,21 +68,15 @@ def get_products_e_apteka(
         }
     }
     url = f"https://www.eapteka.ru{city_name}goods/id{sku.strip()}/"
-    url = f"https://2ip.ru/"
     driver: Firefox = get_web_driver(proxy)
-    # driver.implicitly_wait(60)
     driver.get(url)
-    a = driver.find_element(By.CLASS_NAME, "ip-info_right").text
-    print(a)
-    time.sleep(3)
-    url = f"https://www.eapteka.ru{city_name}goods/id{sku.strip()}/"
+
     time.sleep(3)
 
     try:
         obj = parse_object(driver)
         if obj is not None:
             name, brand, price, price_old = obj
-            print(name)
             return sku, name, brand, price, price_old, category
     except ParceException as e:
         print(e)
