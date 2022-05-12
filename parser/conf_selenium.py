@@ -44,7 +44,7 @@ def get_web_driver(proxy=None):
     # profile.set_preference("network.proxy.username", "QPYXyF")
     # profile.set_preference("network.proxy.password", "rGurC6")
     # profile.set_preference("network.proxy.no_proxies_on", "localhost, 127.0.0.1")
-    profile.update_preferences()
+    # profile.update_preferences()
 
     driver = webdriver.Firefox(
         executable_path=root_path + '/geckodriver',
