@@ -27,9 +27,14 @@ def get_web_driver(proxy=None):
     profile.set_preference("network.proxy.no_proxies_on", "localhost, 127.0.0.1")
     profile.update_preferences()
 
-    driver = webdriver.Firefox(
+    driver = webd.Firefox(
         executable_path=root_path + '/geckodriver',
         options=options,
+        seleniumwire_options={'proxy': {
+            'http': 'http://QPYXyF:rGurC6@193.36.58.158:8000',
+            'https': 'https://QPYXyF:rGurC6@193.36.58.158:8000',
+            'no_proxy': 'localhost,127.0.0.1' # excludes
+        }},
         firefox_profile=profile,
         # seleniumwire_options=proxy,
         desired_capabilities=DesiredCapabilities.FIREFOX,
