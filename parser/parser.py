@@ -61,17 +61,12 @@ def get_products_e_apteka(
         city_name: str,
         category: str,
 ) -> Optional[tuple]:
-
-    proxy = {
-        "proxy": {
-            "http": random.choice(proxy_list)
-        }
-    }
     url = f"https://www.eapteka.ru{city_name}goods/id{sku.strip()}/"
-    driver: Firefox = get_web_driver(proxy)
-    url = "https://2ip.ru/"
-    driver.get(url)
-    print(driver.find_element(By.CLASS_NAME, "ip").text)
+
+    # url = "https://2ip.ru/"
+    driver: Firefox = get_web_driver(url)
+    # time.sleep(1)
+    # print(driver.find_element(By.CLASS_NAME, "ip").text)
 
     time.sleep(3)
 
