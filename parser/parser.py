@@ -68,11 +68,14 @@ def get_products_e_apteka(
         }
     }
     url = f"https://www.eapteka.ru{city_name}goods/id{sku.strip()}/"
-    # url = f"https://2ip.ru/"
+    url = f"https://2ip.ru/"
     driver: Firefox = get_web_driver(proxy)
     # driver.implicitly_wait(60)
     driver.get(url)
     time.sleep(3)
+    url = f"https://www.eapteka.ru{city_name}goods/id{sku.strip()}/"
+    time.sleep(3)
+
     try:
         obj = parse_object(driver)
         if obj is not None:
