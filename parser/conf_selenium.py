@@ -22,8 +22,11 @@ def get_web_driver(proxy=None):
     profile.set_preference("network.proxy.type", 1)
     profile.set_preference("network.proxy.http", "193.36.58.158")
     profile.set_preference("network.proxy.http_port", 8000)
+    profile.set_preference('network.proxy.ssl_port', 8000)
+    profile.set_preference('network.proxy.ssl', "193.36.58.158")
     profile.set_preference("network.proxy.username", "QPYXyF")
     profile.set_preference("network.proxy.password", "rGurC6")
+    profile.set_preference("network.proxy.no_proxies_on", "localhost, 127.0.0.1")
     profile.update_preferences()
 
     driver = webdriver.Firefox(
