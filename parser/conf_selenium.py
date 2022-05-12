@@ -9,11 +9,11 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 def get_web_driver(proxy=None):
     root_path = os.getcwd()
-    options = webdriver.FirefoxOptions()
+    options = webd.FirefoxOptions()
     options.add_argument("--headless")
     options.set_preference("dom.webdriver.enabled", False)
 
-    profile = webdriver.FirefoxProfile()
+    profile = webd.FirefoxProfile()
     profile.set_preference('dom.webdriver.enabled', False)
     profile.set_preference('useAutomationExtension', False)
     profile.set_preference("browser.cache.disk.enable", False)
@@ -24,7 +24,7 @@ def get_web_driver(proxy=None):
     driver = webd.Firefox(
         executable_path=root_path + '/geckodriver',
         options=options,
-        # firefox_profile=profile,
+        firefox_profile=profile,
         seleniumwire_options=proxy,
         desired_capabilities=DesiredCapabilities.FIREFOX,
         # proxy=proxy_config,
