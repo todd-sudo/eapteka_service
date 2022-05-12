@@ -26,7 +26,7 @@ def get_web_driver(proxy=None):
     profile.set_preference('network.auth.use-sspi', 'false')
 
     proxy_data = {'address': '193.36.58.158:8000',
-                  'usernmae': 'QPYXyF',
+                  'username': 'QPYXyF',
                   'password': 'rGurC6'}
     proxy_dict = {'proxyType': ProxyType.MANUAL,
                   'httpProxy': proxy_data['address'],
