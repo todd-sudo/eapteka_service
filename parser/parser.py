@@ -69,9 +69,9 @@ def get_products_e_apteka(
     }
     url = f"https://www.eapteka.ru{city_name}goods/id{sku.strip()}/"
     driver: Firefox = get_web_driver(proxy)
-    url = "https://whatismyipaddress.com/"
+    url = "https://2ip.ru/"
     driver.get(url)
-    print(driver.find_element(By.CLASS_NAME, "ip-address").text)
+    print(driver.find_element(By.CLASS_NAME, "ip-info_right").text)
 
     time.sleep(3)
 
