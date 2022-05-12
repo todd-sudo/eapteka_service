@@ -11,7 +11,7 @@ def get_web_driver(proxy=None):
     options.add_argument("--headless")
     options.set_preference("dom.webdriver.enabled", False)
 
-    profile = webd.FirefoxProfile()
+    profile = webdriver.FirefoxProfile()
     profile.set_preference('dom.webdriver.enabled', False)
     profile.set_preference('useAutomationExtension', False)
     profile.set_preference("browser.cache.disk.enable", False)
