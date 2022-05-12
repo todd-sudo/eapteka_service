@@ -72,6 +72,8 @@ def get_products_e_apteka(
     driver: Firefox = get_web_driver(proxy)
     # driver.implicitly_wait(60)
     driver.get(url)
+    a = driver.find_element(By.CLASS_NAME, "ip-info_right").text
+    print(a)
     time.sleep(3)
     url = f"https://www.eapteka.ru{city_name}goods/id{sku.strip()}/"
     time.sleep(3)
