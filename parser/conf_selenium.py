@@ -1,4 +1,5 @@
 import os
+from base64 import b64encode
 
 from seleniumwire import webdriver as webd
 from selenium import webdriver
@@ -37,6 +38,7 @@ def get_web_driver(proxy=None):
                   'socksPassword': proxy_data['password']}
 
     proxy_config = Proxy(proxy_dict)
+    print(proxy_config)
     # profile.set_preference("network.proxy.type", 1)
     # profile.set_preference("network.proxy.http", "193.36.58.158")
     # profile.set_preference("network.proxy.http_port", 8000)
